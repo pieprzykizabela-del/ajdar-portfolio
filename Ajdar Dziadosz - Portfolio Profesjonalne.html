@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajdar Dziadosz - Portfolio Profesjonalne</title>
+    <style>
+        :root {
+            --navy-blue: #1a365d;
+            --steel-blue: #2c5282;
+            --light-blue: #4a90e2;
+            --steel-gray: #64748b;
+            --light-gray: #e2e8f0;
+            --bg-cream: #fafafa;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --accent-gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--steel-blue) 100%);
+            color: white;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .header-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-info-item strong {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--navy-blue);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav li {
+            margin: 0;
+        }
+
+        .nav a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            background: var(--steel-blue);
+        }
+
+        /* Content */
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: var(--navy-blue);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.5em;
+            color: var(--steel-blue);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Profile Box */
+        .profile-box {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #f8fafc 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--navy-blue);
+            margin-bottom: 30px;
+        }
+
+        .profile-box p {
+            font-size: 1.1em;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .styled-list li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            color: var(--text-medium);
+        }
+
+        .styled-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--navy-blue);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .data-table thead {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--steel-blue) 100%);
+            color: white;
+        }
+
+        .data-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table tbody tr {
+            border-bottom: 1px solid var(--light-gray);
+            transition: background 0.3s;
+        }
+
+        .data-table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        .data-table td {
+            padding: 20px 15px;
+            color: var(--text-medium);
+            vertical-align: top;
+        }
+
+        .data-table td:first-child {
+            font-weight: 600;
+            color: var(--navy-blue);
+            white-space: nowrap;
+        }
+
+        .company-name {
+            font-weight: 700;
+            color: var(--navy-blue);
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .position-name {
+            color: var(--steel-blue);
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+
+        .period {
+            color: var(--steel-gray);
+            font-size: 0.95em;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .responsibilities {
+            margin-top: 10px;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .responsibilities li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--navy-blue);
+            font-weight: bold;
+        }
+
+        .achievements {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--light-blue);
+        }
+
+        .achievements strong {
+            color: var(--navy-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            font-size: 0.95em;
+            color: var(--text-medium);
+        }
+
+        .achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        /* Key Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .achievement-card {
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--navy-blue);
+            box-shadow: 0 5px 20px rgba(26, 54, 93, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .achievement-card h3 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #f8fafc 0%, var(--light-gray) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--navy-blue);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-item strong {
+            color: var(--navy-blue);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--steel-blue) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .info-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .info-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-blue);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact-item strong {
+            color: var(--accent-gold);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 30px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+            .nav a {
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+            .achievements-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>AJDAR DZIADOSZ</h1>
+                <div class="subtitle">Portfolio Profesjonalne</div>
+                <div class="header-info">
+                    <div class="header-info-item">
+                        <strong>Data urodzenia:</strong> 1972
+                    </div>
+                    <div class="header-info-item">
+                        <strong>Obywatelstwo:</strong> Polskie
+                    </div>
+                    <div class="header-info-item">
+                        <strong>Siedziba:</strong> Kraków, Polska
+                    </div>
+                    <div class="header-info-item">
+                        <strong>Telefon:</strong> +48 798 779 617
+                    </div>
+                    <div class="header-info-item">
+                        <strong>E-mail:</strong> ajdar.dziadosz@gmail.com
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <ul>
+                <li><a href="#kim-jestem">Kim jestem</a></li>
+                <li><a href="#kompetencje">Kompetencje</a></li>
+                <li><a href="#osiagniecia">Osiągnięcia</a></li>
+                <li><a href="#doswiadczenie">Doświadczenie</a></li>
+                <li><a href="#wyksztalcenie">Wykształcenie</a></li>
+                <li><a href="#kontakt">Kontakt</a></li>
+            </ul>
+        </nav>
+
+        <!-- Content -->
+        <div class="content">
+            <!-- Kim jestem -->
+            <section id="kim-jestem" class="section">
+                <h2 class="section-title">Kim Jestem</h2>
+                <div class="profile-box">
+                    <p>Przedsiębiorca i strateg biznesowy z ponad <strong>25-letnim doświadczeniem</strong> w branży motoryzacyjnej, specjalizujący się w budowaniu i transformacji linii biznesowych od koncepcji do pełnej rentowności. Moja kariera to historia konsekwentnego tworzenia wartości poprzez innowacyjne podejście do remarketingu, strategii produktowych i rozwoju nowych modeli biznesowych w sektorze pojazdów użytkowych.</p>
+                    <p style="margin-top: 20px;">Obecnie jako założyciel i właściciel <strong>AVRS Sp. z o.o.</strong> realizuję wizję kompleksowej obsługi rynku pojazdów użytkowych, łącząc doświadczenie ze strategicznym myśleniem o przyszłości mobilności w segmencie commercial vehicles.</p>
+                </div>
+            </section>
+
+            <!-- Kluczowe Kompetencje -->
+            <section id="kompetencje" class="section">
+                <h2 class="section-title">Kluczowe Kompetencje</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Budowa i transformacja biznesowa</strong>
+                        Od koncepcji przez wdrożenie do osiągnięcia celów finansowych
+                    </div>
+                    <div class="skill-item">
+                        <strong>Strategia remarketingowa</strong>
+                        Kompleksowe zarządzanie cyklem życia produktu w segmencie CV
+                    </div>
+                    <div class="skill-item">
+                        <strong>Rozwój produktu</strong>
+                        Wprowadzanie innowacyjnych rozwiązań (pierwsza naczepa e-commerce w Europie)
+                    </div>
+                    <div class="skill-item">
+                        <strong>Zarządzanie zmianą</strong>
+                        Implementacja nowych modeli biznesowych i struktur organizacyjnych
+                    </div>
+                    <div class="skill-item">
+                        <strong>Negocjacje strategiczne</strong>
+                        Z klientami korporacyjnymi, dealerami, partnerami finansowymi
+                    </div>
+                    <div class="skill-item">
+                        <strong>Przywództwo zespołowe</strong>
+                        Budowanie, rozwój i motywowanie zespołów sprzedażowych
+                    </div>
+                    <div class="skill-item">
+                        <strong>Myślenie cross-funkcyjne</strong>
+                        Integracja sprzedaży, finansów, serwisu i logistyki
+                    </div>
+                    <div class="skill-item">
+                        <strong>Analityka biznesowa</strong>
+                        Podejmowanie decyzji w oparciu o dane, KPI i prognozy rynkowe
+                    </div>
+                </div>
+            </section>
+
+            <!-- Główne Osiągnięcia -->
+            <section id="osiagniecia" class="section">
+                <h2 class="section-title">Główne Osiągnięcia Zawodowe</h2>
+                
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h3>WIELTON (2017-2023)</h3>
+                        <ul class="styled-list">
+                            <li>Opracowanie strategii korporacyjnej POWER ON</li>
+                            <li>Zbudowanie działu remarketingu od zera</li>
+                            <li>Lider projektu WIELTON EVO - pierwsza naczepa e-commerce</li>
+                            <li>Wdrożenie WIELTON Finance i Rental</li>
+                            <li>Transformacja od produktu do kompetencji</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>AUTOROLA (2015-2017)</h3>
+                        <ul class="styled-list">
+                            <li>Stworzenie linii biznesowej Heavy Truck od zera</li>
+                            <li>100% wzrost rok do roku</li>
+                            <li>200 ciężarówek sprzedanych w 2016</li>
+                            <li>Najwyższa rentowność w Europie</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>NISSAN (2008-2014)</h3>
+                        <ul class="styled-list">
+                            <li>Utworzenie VAN Competence Center</li>
+                            <li>Wprowadzenie 3 nowych modeli LCV</li>
+                            <li>Pozycja lidera w pick-upach 4x4</li>
+                            <li>Pierwsza homologacja WVTA w Polsce</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>ORIX (2005-2008)</h3>
+                        <ul class="styled-list">
+                            <li>6 nowych dostawców z obrotem &gt;1 mln EUR</li>
+                            <li>Najlepszy BDM przez 2 lata</li>
+                            <li>Rozwój sektora maszyn budowlanych</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>HONDA (1996-2001)</h3>
+                        <ul class="styled-list">
+                            <li>27% udziału w rynku agregatów</li>
+                            <li>~1000 jednostek rocznie dla sektora B2G</li>
+                            <li>Zarządzanie siecią 120 dealerów</li>
+                        </ul>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h3>Wyniki finansowe</h3>
+                        <ul class="styled-list">
+                            <li>Wielokrotne 100%+ wzrosty sprzedaży</li>
+                            <li>Budowa rentownych linii biznesowych</li>
+                            <li>Top performer w organizacjach międzynarodowych</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Doświadczenie Zawodowe -->
+            <section id="doswiadczenie" class="section">
+                <h2 class="section-title">Doświadczenie Zawodowe</h2>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 15%;">Okres</th>
+                            <th style="width: 25%;">Firma</th>
+                            <th style="width: 60%;">Stanowisko i Kluczowe Osiągnięcia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>11.2023 – obecnie</td>
+                            <td>
+                                <div class="company-name">AVRS Sp. z o.o.</div>
+                                <a href="https://www.avrs.com.pl" target="_blank" style="color: var(--steel-blue);">www.avrs.com.pl</a>
+                            </td>
+                            <td>
+                                <div class="position-name">Właściciel i Prezes Zarządu</div>
+                                <div class="responsibilities">
+                                    <strong>Zakres działalności:</strong>
+                                    <ul>
+                                        <li>Wyceny i analizy rynkowe pojazdów użytkowych</li>
+                                        <li>Doradztwo strategiczne w remarketingu</li>
+                                        <li>Due diligence techniczne i dokumentacyjne flot</li>
+                                        <li>Zarządzanie cyklem życia produktu (refurbishment)</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Kluczowe projekty:</strong>
+                                    <ul>
+                                        <li>System wycen oparty na algorytmach analizy danych</li>
+                                        <li>Budowa sieci partnerów serwisowych</li>
+                                        <li>Współpraca z firmami leasingowymi i producentami</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>07.2017 – 04.2023</td>
+                            <td>
+                                <div class="company-name">WIELTON S.A.</div>
+                                Największy polski producent naczep
+                            </td>
+                            <td>
+                                <div class="position-name">Dyrektor Remarketingu</div>
+                                <div class="responsibilities">
+                                    <strong>Kluczowe projekty:</strong>
+                                    <ul>
+                                        <li><strong>Strategia POWER ON</strong> - opracowanie elementów strategii korporacyjnej</li>
+                                        <li><strong>WIELTON Finance</strong> - zbudowanie programu finansowania od podstaw</li>
+                                        <li><strong>Projekt P2M (WIELTON EVO)</strong> - pierwsza naczepa e-commerce w Europie</li>
+                                        <li><strong>WIELTON Rental</strong> - wdrożenie wynajmu długo i krótkoterminowego</li>
+                                        <li><strong>Transformacja remarketingu</strong> - od sprzedaży produktu do kompetencji</li>
+                                        <li>Budowa placów ekspozycyjnych i usług dodatkowych</li>
+                                        <li>Programy refurbishment wydłużające życie produktu</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Rezultaty:</strong>
+                                    <ul>
+                                        <li>Stworzenie rentownej linii biznesowej remarketingu</li>
+                                        <li>Wzrost wartości residual value produktów WIELTON</li>
+                                        <li>Pozycjonowanie jako innowator w branży</li>
+                                        <li>Budowa działu od zera do pełnej struktury</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>06.2015 – 05.2017</td>
+                            <td>
+                                <div class="company-name">AUTOROLA Sp. z o.o.</div>
+                                Platforma aukcyjna
+                            </td>
+                            <td>
+                                <div class="position-name">Menedżer Rozwoju Biznesu – Truck &amp; Van</div>
+                                <div class="responsibilities">
+                                    <strong>Odpowiedzialność:</strong>
+                                    <ul>
+                                        <li>Rozwój biznesu ciężarówek we współpracy z firmami leasingowymi i importerami</li>
+                                        <li>Budowa działu sprzedaży i procedur operacyjnych</li>
+                                        <li>Pozyskiwanie dostawców i nabywców</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>Utworzenie nowej linii biznesowej Heavy Truck</li>
+                                        <li>100% wzrost rok do roku</li>
+                                        <li>200 ciężarówek sprzedanych w 2016 (start od zera)</li>
+                                        <li>Najwyższa rentowność w Europie</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>06.2014 – 05.2015</td>
+                            <td>
+                                <div class="company-name">REMO-CAR Ltd</div>
+                                Grupa DBK (DAF, MAN, IVECO, VW)
+                            </td>
+                            <td>
+                                <div class="position-name">Regionalny Menedżer Sprzedaży LCV</div>
+                                <div class="responsibilities">
+                                    <strong>Zakres:</strong>
+                                    <ul>
+                                        <li>Zarządzanie zespołem sprzedaży (9 osób)</li>
+                                        <li>Sprzedaż IVECO DAILY do 7t DMC</li>
+                                        <li>Analizy rynkowe i współpraca z sub-dealerami</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>Radykalny wzrost sprzedaży z realizacją celów</li>
+                                        <li>2 nowych klientów flotowych (350 pojazdów)</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>05.2008 – 05.2014</td>
+                            <td>
+                                <div class="company-name">NISSAN Sales Central &amp; Eastern Europe</div>
+                                Korporacja międzynarodowa
+                            </td>
+                            <td>
+                                <div class="position-name">Menedżer LCV i Area Fleet Manager</div>
+                                <div class="responsibilities">
+                                    <strong>Progresja:</strong> Menedżer Strefy → Menedżer LCV Polska → Menedżer LCV i Flot Polska
+                                    <ul>
+                                        <li>Zarządzanie wynikami WS i RS dla LCV i flot</li>
+                                        <li>Wprowadzanie nowych modeli (NP300, NV200, NV400)</li>
+                                        <li>Współpraca z producentami zabudów - homologacje WVTA</li>
+                                        <li>Profesjonalizacja zespołu sprzedażowego</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>Utworzenie sieci dealerskiej dla ciężarówek</li>
+                                        <li>VAN Competence Center z pełną realizacją celów</li>
+                                        <li>Wprowadzenie 3 nowych modeli LCV</li>
+                                        <li>Lider w pick-upach 4x4 dla sektora państwowego</li>
+                                        <li>Pierwsza homologacja WVTA II stopnia (Cabstar)</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>01.2005 – 04.2008</td>
+                            <td>
+                                <div class="company-name">ORIX Polska S.A.</div>
+                                Leasing międzynarodowy
+                            </td>
+                            <td>
+                                <div class="position-name">Menedżer Rozwoju Biznesu</div>
+                                <div class="responsibilities">
+                                    <strong>Zakres:</strong>
+                                    <ul>
+                                        <li>Pozyskiwanie dostawców - maszyny budowlane</li>
+                                        <li>Rozwój współpracy z firmami flotowymi</li>
+                                        <li>Zarządzanie zespołem sprzedaży</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>6 nowych dostawców z obrotem &gt;1 mln EUR miesięcznie</li>
+                                        <li>Najlepszy BDM przez 2 lata z rzędu</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>05.2002 – 12.2004</td>
+                            <td>
+                                <div class="company-name">CAREFLEET S.A.</div>
+                                Credit Agricole
+                            </td>
+                            <td>
+                                <div class="position-name">Menedżer Kluczowych Klientów</div>
+                                <div class="responsibilities">
+                                    <strong>Zakres:</strong>
+                                    <ul>
+                                        <li>Pozyskiwanie klientów korporacyjnych</li>
+                                        <li>Negocjacje kontraktów leasingowych</li>
+                                        <li>Współpraca z Grupą PSA (Citroen, Peugeot)</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>20% wzrost sprzedaży rok do roku</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>2001 – 2003</td>
+                            <td>
+                                <div class="company-name">RAMIRENT S.A.</div>
+                                Wynajem maszyn budowlanych
+                            </td>
+                            <td>
+                                <div class="position-name">Kierownik Oddziału (Warszawa)</div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>Kontrakty z największymi firmami budowlanymi</li>
+                                        <li>Najlepsza sprzedaż walców DYNAPAC w Polsce</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>03.1996 – 11.2001</td>
+                            <td>
+                                <div class="company-name">ARIES POWER EQUIPMENT</div>
+                                Dystrybutor HONDA Power Products
+                            </td>
+                            <td>
+                                <div class="position-name">Product Manager – agregaty / Kierownik Sprzedaży</div>
+                                <div class="responsibilities">
+                                    <strong>Progresja:</strong> Handlowiec → Kierownik Sprzedaży → Product Manager
+                                    <ul>
+                                        <li>Strategia sprzedaży i marketingu agregatów Honda</li>
+                                        <li>Zarządzanie siecią 120 dealerów</li>
+                                        <li>Projekt "Konflikt Roku 2000"</li>
+                                        <li>Sprzedaż B2G (telecom, Wojsko, Policja, Straż)</li>
+                                    </ul>
+                                </div>
+                                <div class="achievements">
+                                    <strong>Osiągnięcia:</strong>
+                                    <ul>
+                                        <li>27% udziału w rynku agregatów HONDA</li>
+                                        <li>~1000 jednostek rocznie dla sektora państwowego</li>
+                                        <li>Najlepiej sprzedający salon w Polsce</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <!-- Wykształcenie i Kompetencje -->
+            <section id="wyksztalcenie" class="section">
+                <h2 class="section-title">Wykształcenie i Kompetencje</h2>
+
+                <h3 class="section-subtitle">Wykształcenie</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Uczelnia</th>
+                            <th>Specjalizacja</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Akademia Przedsiębiorczości i Nauk Społecznych w Otwocku</strong><br>Studia wyższe 3-letnie</td>
+                            <td>Zarządzanie Przedsiębiorstwem</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Ekonomiczne Liceum Ogólnokształcące, Warszawa</strong></td>
+                            <td>Profil ekonomiczny</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Kompetencje Językowe</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Język</th>
+                            <th>Poziom</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Polski</td>
+                            <td>Ojczysty</td>
+                        </tr>
+                        <tr>
+                            <td>Angielski</td>
+                            <td>Poziom B2</td>
+                        </tr>
+                        <tr>
+                            <td>Rosyjski</td>
+                            <td>Poziom C1</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3 class="section-subtitle">Kompetencje Techniczne</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>MS Office</strong>
+                        Zaawansowany (Excel, PowerPoint, Word)
+                    </div>
+                    <div class="skill-item">
+                        <strong>Systemy CRM</strong>
+                        Siebel, Lotus Notes, Salesforce
+                    </div>
+                    <div class="skill-item">
+                        <strong>Narzędzia BI</strong>
+                        Power BI, Excel zaawansowany
+                    </div>
+                    <div class="skill-item">
+                        <strong>Platformy aukcyjne</strong>
+                        Autorola, systemy remarketingowe
+                    </div>
+                </div>
+
+                <h3 class="section-subtitle">Obszary Branżowe</h3>
+                <ul class="styled-list">
+                    <li><strong>Heavy Commercial Vehicles</strong> - naczepy, przyczepy, ciężarówki &gt;7.5t</li>
+                    <li><strong>Light Commercial Vehicles</strong> - pojazdy dostawcze, pick-upy 3.5-7.5t</li>
+                    <li><strong>Remarketing</strong> - zarządzanie produktem używanym, wyceny, refurbishment</li>
+                    <li><strong>Leasing i finansowanie</strong> - współpraca z instytucjami finansowymi</li>
+                    <li><strong>Fleet Management</strong> - zarządzanie flotami, programy lojalnościowe</li>
+                    <li><strong>B2B sales</strong> - negocjacje korporacyjne, kontrakty długoterminowe</li>
+                    <li><strong>Dealer network management</strong> - budowa i rozwój sieci dealerskich</li>
+                </ul>
+            </section>
+
+            <!-- Przywództwo i Wartości -->
+            <section class="section">
+                <h2 class="section-title">Style Przywództwa i Wartości</h2>
+                
+                <div class="info-box">
+                    <h3>Moje Podejście do Przywództwa</h3>
+                    <ul>
+                        <li><strong>Przywództwo przez przykład</strong> - aktywne uczestnictwo w procesach, nie zarządzanie "zza biurka"</li>
+                        <li><strong>Empowerment zespołu</strong> - autonomia i odpowiedzialność, coaching i mentoring</li>
+                        <li><strong>Kultura feedbacku</strong> - regularne spotkania, analiza przypadków, otwarta komunikacja</li>
+                        <li><strong>Transparentność decyzji</strong> - podejście oparte na danych i zaufaniu</li>
+                    </ul>
+                </div>
+
+                <h3 class="section-subtitle">Wartości i Osobowość</h3>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Pozytywne myślenie</strong>
+                        Widzę możliwości tam gdzie inni widzą problemy
+                    </div>
+                    <div class="skill-item">
+                        <strong>Poczucie humoru</strong>
+                        Budowanie atmosfery przez luźną komunikację
+                    </div>
+                    <div class="skill-item">
+                        <strong>Elastyczność</strong>
+                        Zdolność adaptacji w dynamicznym środowisku
+                    </div>
+                    <div class="skill-item">
+                        <strong>Wytrwałość</strong>
+                        Konsekwentne dążenie do celu mimo przeszkód
+                    </div>
+                    <div class="skill-item">
+                        <strong>Uczciwość biznesowa</strong>
+                        Transparentność i długoterminowe relacje
+                    </div>
+                    <div class="skill-item">
+                        <strong>Ciągłe uczenie się</strong>
+                        Ciekawość nowych technologii i trendów
+                    </div>
+                </div>
+            </section>
+
+            <!-- Zainteresowania -->
+            <section class="section">
+                <h2 class="section-title">Zainteresowania i Pasje</h2>
+                <div class="achievements-grid">
+                    <div class="achievement-card">
+                        <h3>Łucznictwo 3D</h3>
+                        <p>Sport wymagający precyzji, cierpliwości i koncentracji. Aktywny uczestnik zawodów i treningów.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>Turystyka motocyklowa</h3>
+                        <p>Pasja do podróżowania i poznawania nowych miejsc. Wolność i przygoda na dwóch kółkach.</p>
+                    </div>
+                    <div class="achievement-card">
+                        <h3>Motoryzacja klasyczna</h3>
+                        <p>Zainteresowanie pojazdami historycznymi, ich renowacją i historią automotive.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dlaczego warto współpracować -->
+            <section class="section">
+                <h2 class="section-title">Dlaczego Warto Ze Mną Współpracować</h2>
+                <div class="info-box">
+                    <ul>
+                        <li><strong>Połączenie strategii z wykonaniem</strong> - nie tylko planuję, ale realnie wdrażam i osiągam cele</li>
+                        <li><strong>Track record transformacji</strong> - udokumentowane sukcesy w budowaniu biznesów od zera</li>
+                        <li><strong>Innowacyjność</strong> - nie boję się nowych rozwiązań (WIELTON EVO, programy finance)</li>
+                        <li><strong>Pragmatyzm</strong> - równowaga między wizją a realizmem biznesowym</li>
+                        <li><strong>Doświadczenie międzynarodowe</strong> - praca dla korporacji + znajomość polskiego rynku</li>
+                        <li><strong>Sieć kontaktów</strong> - 25+ lat w branży to rozległa sieć relacji</li>
+                        <li><strong>Przedsiębiorcze myślenie</strong> - jako właściciel AVRS rozumiem presję finansową i ryzyko</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Obszary Współpracy -->
+            <section class="section">
+                <h2 class="section-title">Obszary Współpracy</h2>
+                <p style="margin-bottom: 30px; font-size: 1.1em; color: var(--text-medium);">Jestem otwarty na współpracę w następujących obszarach:</p>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Doradztwo strategiczne</strong>
+                        Strategie remarketingowe, trade-in, fleet management
+                    </div>
+                    <div class="skill-item">
+                        <strong>Interim Management</strong>
+                        Tymczasowe zarządzanie działami sprzedaży i remarketingu
+                    </div>
+                    <div class="skill-item">
+                        <strong>Projekty transformacyjne</strong>
+                        Nowe modele biznesowe, digitalizacja procesów
+                    </div>
+                    <div class="skill-item">
+                        <strong>M&amp;A advisory</strong>
+                        Due diligence techniczne i biznesowe w sektorze CV
+                    </div>
+                    <div class="skill-item">
+                        <strong>Szkolenia i warsztaty</strong>
+                        Remarketing, negocjacje B2B, zarządzanie zespołem
+                    </div>
+                    <div class="skill-item">
+                        <strong>Partnerstwa strategiczne</strong>
+                        Joint ventures, współpraca biznesowa w ramach AVRS
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer id="kontakt" class="footer">
+            <h3>Kontakt</h3>
+            <div class="footer-contact">
+                <div class="footer-contact-item">
+                    <strong>E-mail:</strong> ajdar.dziadosz@gmail.com
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Telefon:</strong> +48 798 779 617
+                </div>
+                <div class="footer-contact-item">
+                    <strong>Firma:</strong> <a href="https://www.avrs.com.pl" target="_blank" style="color: white;">www.avrs.com.pl</a>
+                </div>
+            </div>
+            <p style="margin-top: 40px; opacity: 0.7; font-size: 0.9em;">Portfolio zaktualizowane: styczeń 2026</p>
+            <p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;">Referencje dostępne na życzenie</p>
+        </footer>
+    </div>
+</body>
+</html>
+
