@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+
+<html lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ajdar Dziadosz - Portfolio Profesjonalne</title>
+<style>
+        :root {
+            --navy-blue: #1a365d;
+            --steel-blue: #2c5282;
+            --light-blue: #4a90e2;
+            --steel-gray: #64748b;
+            --light-gray: #e2e8f0;
+            --bg-cream: #fafafa;
+            --text-dark: #1e293b;
+            --text-medium: #475569;
+            --accent-gold: #d4af37;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 0 30px rgba(0,0,0,0.1);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--steel-blue) 100%);
+            color: white;
+            padding: 60px 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .header .subtitle {
+            font-size: 1.5em;
+            color: var(--accent-gold);
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .header-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .header-info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-info-item strong {
+            color: var(--accent-gold);
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--navy-blue);
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .nav li {
+            margin: 0;
+        }
+
+        .nav a {
+            display: block;
+            padding: 15px 25px;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            background: var(--steel-blue);
+        }
+
+        /* Content */
+        .content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: var(--navy-blue);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .section-subtitle {
+            font-size: 1.5em;
+            color: var(--steel-blue);
+            margin-top: 30px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Profile Box */
+        .profile-box {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #f8fafc 100%);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--navy-blue);
+            margin-bottom: 30px;
+        }
+
+        .profile-box p {
+            font-size: 1.1em;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        /* Lists */
+        .styled-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .styled-list li {
+            padding: 12px 0 12px 30px;
+            position: relative;
+            color: var(--text-medium);
+        }
+
+        .styled-list li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--navy-blue);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Tables */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .data-table thead {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--steel-blue) 100%);
+            color: white;
+        }
+
+        .data-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            letter-spacing: 0.5px;
+        }
+
+        .data-table tbody tr {
+            border-bottom: 1px solid var(--light-gray);
+            transition: background 0.3s;
+        }
+
+        .data-table tbody tr:hover {
+            background: #f8fafc;
+        }
+
+        .data-table td {
+            padding: 20px 15px;
+            color: var(--text-medium);
+            vertical-align: top;
+        }
+
+        .data-table td:first-child {
+            font-weight: 600;
+            color: var(--navy-blue);
+            white-space: nowrap;
+        }
+
+        .company-name {
+            font-weight: 700;
+            color: var(--navy-blue);
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+
+        .position-name {
+            color: var(--steel-blue);
+            font-weight: 600;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+        }
+
+        .period {
+            color: var(--steel-gray);
+            font-size: 0.95em;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .responsibilities {
+            margin-top: 10px;
+        }
+
+        .responsibilities ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: 5px 0 5px 20px;
+            position: relative;
+            font-size: 0.95em;
+        }
+
+        .responsibilities li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--navy-blue);
+            font-weight: bold;
+        }
+
+        .achievements {
+            background: #f0f9ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            border-left: 4px solid var(--light-blue);
+        }
+
+        .achievements strong {
+            color: var(--navy-blue);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .achievements li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            font-size: 0.95em;
+            color: var(--text-medium);
+        }
+
+        .achievements li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #059669;
+            font-weight: bold;
+        }
+
+        /* Key Achievements Grid */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .achievement-card {
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s;
+        }
+
+        .achievement-card:hover {
+            border-color: var(--navy-blue);
+            box-shadow: 0 5px 20px rgba(26, 54, 93, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .achievement-card h3 {
+            color: var(--navy-blue);
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Skills Grid */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .skill-item {
+            background: linear-gradient(135deg, #f8fafc 0%, var(--light-gray) 100%);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--navy-blue);
+            transition: all 0.3s;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-item strong {
+            color: var(--navy-blue);
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        /* Info Boxes */
+        .info-box {
+            background: linear-gradient(135deg, var(--navy-blue) 0%, var(--steel-blue) 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .info-box h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .info-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .info-box li {
+            padding: 10px 0 10px 30px;
+            position: relative;
+        }
+
+        .info-box li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--navy-blue);
+            color: white;
+            padding: 40px 50px;
+            text-align: center;
+        }
+
+        .footer h3 {
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-contact-item strong {
+            color: var(--accent-gold);
+        }
+
+        /* Print Styles */
+        @media print {
+            .nav {
+                display: none;
+            }
+            .section {
+                page-break-inside: avoid;
+            }
+            body {
+                background: white;
+            }
+            .container {
+                box-shadow: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header {
+                padding: 40px 30px;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .content {
+                padding: 30px 20px;
+            }
+            .section-title {
+                font-size: 1.8em;
+            }
+            .nav a {
+                padding: 12px 15px;
+                font-size: 0.9em;
+            }
+            .achievements-grid,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Language switch */
+        .language-switch {
+            position: absolute;
+            top: 24px;
+            right: 30px;
+            z-index: 10;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.25);
+            border-radius: 999px;
+            padding: 5px;
+            backdrop-filter: blur(6px);
+        }
+        .language-switch button {
+            border: 0;
+            background: transparent;
+            color: rgba(255,255,255,0.72);
+            font: inherit;
+            font-weight: 700;
+            letter-spacing: .04em;
+            padding: 7px 10px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+        .language-switch button:hover { color: #fff; }
+        .language-switch button.active {
+            background: #fff;
+            color: var(--navy-blue);
+        }
+        @media (max-width: 768px) {
+            .language-switch { top: 16px; right: 16px; }
+            .header { padding-top: 72px; }
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+<!-- Header -->
+<header class="header">
+<div aria-label="Language switch" class="language-switch">
+<button aria-pressed="true" class="lang-btn active" data-lang="pl" type="button">PL</button>
+<button aria-pressed="false" class="lang-btn" data-lang="en" type="button">ENG</button>
+</div>
+<div class="header-content">
+<h1>AJDAR DZIADOSZ</h1>
+<div class="subtitle"><span data-en="Professional Portfolio" data-pl="Portfolio Profesjonalne">Portfolio Profesjonalne</span></div>
+<div class="header-info">
+<div class="header-info-item">
+<strong><span data-en="Year of birth:" data-pl="Data urodzenia:">Data urodzenia:</span></strong> 1972
+                    </div>
+<div class="header-info-item">
+<strong><span data-en="Nationality:" data-pl="Obywatelstwo:">Obywatelstwo:</span></strong> <span data-en="Polish" data-pl="Polskie">Polskie</span>
+                    </div>
+<div class="header-info-item">
+<strong><span data-en="Location:" data-pl="Siedziba:">Siedziba:</span></strong> <span data-en="Kraków, Poland" data-pl="Kraków, Polska">Kraków, Polska</span>
+                    </div>
+<div class="header-info-item">
+<strong><span data-en="Phone:" data-pl="Telefon:">Telefon:</span></strong> +48 798 779 617
+                    </div>
+<div class="header-info-item">
+<strong>E-mail:</strong> ajdar.dziadosz@gmail.com
+                    </div>
+</div>
+</div>
+</header>
+<!-- Navigation -->
+<nav class="nav">
+<ul>
+<li><a href="#kim-jestem"><span data-en="About Me" data-pl="Kim jestem">Kim jestem</span></a></li>
+<li><a href="#kompetencje"><span data-en="Competencies" data-pl="Kompetencje">Kompetencje</span></a></li>
+<li><a href="#osiagniecia"><span data-en="Achievements" data-pl="Osiągnięcia">Osiągnięcia</span></a></li>
+<li><a href="#doswiadczenie"><span data-en="Experience" data-pl="Doświadczenie">Doświadczenie</span></a></li>
+<li><a href="#wyksztalcenie"><span data-en="Education" data-pl="Wykształcenie">Wykształcenie</span></a></li>
+<li><a href="#kontakt"><span data-en="Contact" data-pl="Kontakt">Kontakt</span></a></li>
+</ul>
+</nav>
+<!-- Content -->
+<div class="content">
+ <span data-en="About Me" data-pl="Kim jestem">Kim jestem</span> 
+<section class="section" id="kim-jestem">
+<h2 class="section-title"><span data-en="About Me" data-pl="Kim Jestem">Kim Jestem</span></h2>
+<div class="profile-box">
+<p><span data-en="Entrepreneur and business strategist with over" data-pl="Przedsiębiorca i strateg biznesowy z ponad">Przedsiębiorca i strateg biznesowy z ponad</span> <strong><span data-en="25 years of experience" data-pl="25-letnim doświadczeniem">25-letnim doświadczeniem</span></strong> <span data-en="in the automotive industry, specializing in building and transforming business lines from concept to full profitability. My career has focused on consistently creating value through innovative approaches to remarketing, product strategy, and the development of new business models in the commercial vehicle sector." data-pl="w branży motoryzacyjnej, specjalizujący się w budowaniu i transformacji linii biznesowych od koncepcji do pełnej rentowności. Moja kariera to historia konsekwentnego tworzenia wartości poprzez innowacyjne podejście do remarketingu, strategii produktowych i rozwoju nowych modeli biznesowych w sektorze pojazdów użytkowych.">w branży motoryzacyjnej, specjalizujący się w budowaniu i transformacji linii biznesowych od koncepcji do pełnej rentowności. Moja kariera to historia konsekwentnego tworzenia wartości poprzez innowacyjne podejście do remarketingu, strategii produktowych i rozwoju nowych modeli biznesowych w sektorze pojazdów użytkowych.</span></p>
+<p style="margin-top: 20px;"><span data-en="Currently, as the founder and owner of" data-pl="Obecnie jako założyciel i właściciel">Obecnie jako założyciel i właściciel</span> <strong>AVRS Sp. z o.o.</strong> <span data-en="I am developing a comprehensive service model for the commercial vehicle market, combining hands-on experience with strategic thinking about the future of mobility in the commercial vehicles segment." data-pl="realizuję wizję kompleksowej obsługi rynku pojazdów użytkowych, łącząc doświadczenie ze strategicznym myśleniem o przyszłości mobilności w segmencie commercial vehicles.">realizuję wizję kompleksowej obsługi rynku pojazdów użytkowych, łącząc doświadczenie ze strategicznym myśleniem o przyszłości mobilności w segmencie commercial vehicles.</span></p>
+</div>
+</section>
+ <span data-en="Key Competencies" data-pl="Kluczowe Kompetencje">Kluczowe Kompetencje</span> 
+<section class="section" id="kompetencje">
+<h2 class="section-title"><span data-en="Key Competencies" data-pl="Kluczowe Kompetencje">Kluczowe Kompetencje</span></h2>
+<div class="skills-grid">
+<div class="skill-item">
+<strong><span data-en="Business Building &amp; Transformation" data-pl="Budowa i transformacja biznesowa">Budowa i transformacja biznesowa</span></strong>
+                        <span data-en="From concept through implementation to financial performance" data-pl="Od koncepcji przez wdrożenie do osiągnięcia celów finansowych">Od koncepcji przez wdrożenie do osiągnięcia celów finansowych</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Remarketing Strategy" data-pl="Strategia remarketingowa">Strategia remarketingowa</span></strong>
+                        <span data-en="End-to-end product lifecycle management in the CV segment" data-pl="Kompleksowe zarządzanie cyklem życia produktu w segmencie CV">Kompleksowe zarządzanie cyklem życia produktu w segmencie CV</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Product Development" data-pl="Rozwój produktu">Rozwój produktu</span></strong>
+                        <span data-en="Introducing innovative solutions (Europe’s first e-commerce semi-trailer)" data-pl="Wprowadzanie innowacyjnych rozwiązań (pierwsza naczepa e-commerce w Europie)">Wprowadzanie innowacyjnych rozwiązań (pierwsza naczepa e-commerce w Europie)</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Change Management" data-pl="Zarządzanie zmianą">Zarządzanie zmianą</span></strong>
+                        <span data-en="Implementation of new business models and organizational structures" data-pl="Implementacja nowych modeli biznesowych i struktur organizacyjnych">Implementacja nowych modeli biznesowych i struktur organizacyjnych</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Strategic Negotiations" data-pl="Negocjacje strategiczne">Negocjacje strategiczne</span></strong>
+                        <span data-en="With corporate clients, dealers, and financial partners" data-pl="Z klientami korporacyjnymi, dealerami, partnerami finansowymi">Z klientami korporacyjnymi, dealerami, partnerami finansowymi</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Team Leadership" data-pl="Przywództwo zespołowe">Przywództwo zespołowe</span></strong>
+                        <span data-en="Building, developing, and motivating sales teams" data-pl="Budowanie, rozwój i motywowanie zespołów sprzedażowych">Budowanie, rozwój i motywowanie zespołów sprzedażowych</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Cross-functional Thinking" data-pl="Myślenie cross-funkcyjne">Myślenie cross-funkcyjne</span></strong>
+                        <span data-en="Integration of sales, finance, service, and logistics" data-pl="Integracja sprzedaży, finansów, serwisu i logistyki">Integracja sprzedaży, finansów, serwisu i logistyki</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Business Analytics" data-pl="Analityka biznesowa">Analityka biznesowa</span></strong>
+                        <span data-en="Data-driven decision-making based on KPIs and market forecasts" data-pl="Podejmowanie decyzji w oparciu o dane, KPI i prognozy rynkowe">Podejmowanie decyzji w oparciu o dane, KPI i prognozy rynkowe</span>
+                    </div>
+</div>
+</section>
+<!-- Główne Osiągnięcia -->
+<section class="section" id="osiagniecia">
+<h2 class="section-title"><span data-en="Key Professional Achievements" data-pl="Główne Osiągnięcia Zawodowe">Główne Osiągnięcia Zawodowe</span></h2>
+<div class="achievements-grid">
+<div class="achievement-card">
+<h3>WIELTON (2017-2023)</h3>
+<ul class="styled-list">
+<li><span data-en="Development of the POWER ON corporate strategy" data-pl="Opracowanie strategii korporacyjnej POWER ON">Opracowanie strategii korporacyjnej POWER ON</span></li>
+<li><span data-en="Built the remarketing department and implemented its operating structure" data-pl="Budowa działu remarketingu i wdrożenie struktury operacyjnej">Budowa działu remarketingu i wdrożenie struktury operacyjnej</span></li>
+<li><span data-en="Project leader for WIELTON EVO – Europe’s first e-commerce semi-trailer" data-pl="Lider projektu WIELTON EVO - pierwsza naczepa e-commerce">Lider projektu WIELTON EVO - pierwsza naczepa e-commerce</span></li>
+<li><span data-en="Implemented WIELTON Finance and Rental" data-pl="Wdrożenie WIELTON Finance i Rental">Wdrożenie WIELTON Finance i Rental</span></li>
+<li><span data-en="Transformed the sales approach from product selling to competence selling" data-pl="Transformacja sprzedaży od produktu do kompetencji">Transformacja sprzedaży od produktu do kompetencji</span></li>
+</ul>
+</div>
+<div class="achievement-card">
+<h3>AUTOROLA (2015-2017)</h3>
+<ul class="styled-list">
+<li><span data-en="Built the Heavy Truck business line in cooperation with leasing companies and importers" data-pl="Budowa linii biznesowej Heavy Truck we współpracy z firmami leasingowymi i importerami">Budowa linii biznesowej Heavy Truck we współpracy z firmami leasingowymi i importerami</span></li>
+<li><span data-en="100% year-on-year growth" data-pl="100% wzrost rok do roku">100% wzrost rok do roku</span></li>
+<li><span data-en="200 trucks sold in 2016" data-pl="200 ciężarówek sprzedanych w 2016">200 ciężarówek sprzedanych w 2016</span></li>
+<li><span data-en="Highest profitability in Europe" data-pl="Najwyższa rentowność w Europie">Najwyższa rentowność w Europie</span></li>
+</ul>
+</div>
+<div class="achievement-card">
+<h3>NISSAN (2008-2014)</h3>
+<ul class="styled-list">
+<li><span data-en="Established the VAN Competence Center" data-pl="Utworzenie VAN Competence Center">Utworzenie VAN Competence Center</span></li>
+<li><span data-en="Launched 3 new LCV models" data-pl="Wprowadzenie 3 nowych modeli LCV">Wprowadzenie 3 nowych modeli LCV</span></li>
+<li><span data-en="Market-leading position in 4x4 pick-ups" data-pl="Pozycja lidera w pick-upach 4x4">Pozycja lidera w pick-upach 4x4</span></li>
+<li><span data-en="First Stage II WVTA homologation in Poland" data-pl="Pierwsza homologacja WVTA II etapu w Polsce">Pierwsza homologacja WVTA II etapu w Polsce</span></li>
+</ul>
+</div>
+<div class="achievement-card">
+<h3>ORIX (2005-2008)</h3>
+<ul class="styled-list">
+<li><span data-en="6 new suppliers with turnover &gt; EUR 1 million" data-pl="6 nowych dostawców z obrotem &gt;1 mln EUR">6 nowych dostawców z obrotem &gt;1 mln EUR</span></li>
+<li><span data-en="Top BDM for 2 consecutive years" data-pl="Najlepszy BDM przez 2 lata">Najlepszy BDM przez 2 lata</span></li>
+<li><span data-en="Development of the construction machinery sector" data-pl="Rozwój sektora maszyn budowlanych">Rozwój sektora maszyn budowlanych</span></li>
+</ul>
+</div>
+<div class="achievement-card">
+<h3>HONDA (1996-2001)</h3>
+<ul class="styled-list">
+<li><span data-en="27% market share in generators" data-pl="27% udziału w rynku agregatów">27% udziału w rynku agregatów</span></li>
+<li><span data-en="~1,000 units annually for the B2B sector" data-pl="~1000 jednostek rocznie dla sektora B2B">~1000 jednostek rocznie dla sektora B2B</span></li>
+<li><span data-en="Managed a network of 120 dealers" data-pl="Zarządzanie siecią 120 dealerów">Zarządzanie siecią 120 dealerów</span></li>
+</ul>
+</div>
+<div class="achievement-card">
+<h3><span data-en="Financial Performance" data-pl="Wyniki finansowe">Wyniki finansowe</span></h3>
+<ul class="styled-list">
+<li><span data-en="Multiple 100%+ sales growth results" data-pl="Wielokrotne 100%+ wzrosty sprzedaży">Wielokrotne 100%+ wzrosty sprzedaży</span></li>
+<li><span data-en="Built profitable business lines" data-pl="Budowa rentownych linii biznesowych">Budowa rentownych linii biznesowych</span></li>
+<li><span data-en="Top performer in international organizations" data-pl="Top performer w organizacjach międzynarodowych">Top performer w organizacjach międzynarodowych</span></li>
+</ul>
+</div>
+</div>
+</section>
+ <span data-en="Professional Experience" data-pl="Doświadczenie Zawodowe">Doświadczenie Zawodowe</span> 
+<section class="section" id="doswiadczenie">
+<h2 class="section-title"><span data-en="Professional Experience" data-pl="Doświadczenie Zawodowe">Doświadczenie Zawodowe</span></h2>
+<table class="data-table">
+<thead>
+<tr>
+<th style="width: 15%;"><span data-en="Period" data-pl="Okres">Okres</span></th>
+<th style="width: 25%;"><span data-en="Company" data-pl="Firma">Firma</span></th>
+<th style="width: 60%;"><span data-en="Position &amp; Key Achievements" data-pl="Stanowisko i Kluczowe Osiągnięcia">Stanowisko i Kluczowe Osiągnięcia</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-en="11.2023 – present" data-pl="11.2023 – obecnie">11.2023 – obecnie</span></td>
+<td>
+<div class="company-name">AVRS Sp. z o.o.</div>
+<a href="https://www.avrs.com.pl" style="color: var(--steel-blue);" target="_blank">www.avrs.com.pl</a>
+</td>
+<td>
+<div class="position-name"><span data-en="Founder" data-pl="Założyciel">Założyciel</span></div>
+<div class="responsibilities">
+<strong><span data-en="Scope of activity:" data-pl="Zakres działalności:">Zakres działalności:</span></strong>
+<ul>
+<li><span data-en="Commercial vehicle valuations and market analyses" data-pl="Wyceny i analizy rynkowe pojazdów użytkowych">Wyceny i analizy rynkowe pojazdów użytkowych</span></li>
+<li><span data-en="Strategic remarketing advisory" data-pl="Doradztwo strategiczne w remarketingu">Doradztwo strategiczne w remarketingu</span></li>
+<li><span data-en="Technical and documentation due diligence of fleets" data-pl="Due diligence techniczne i dokumentacyjne flot">Due diligence techniczne i dokumentacyjne flot</span></li>
+<li><span data-en="Product lifecycle management (refurbishment)" data-pl="Zarządzanie cyklem życia produktu (refurbishment)">Zarządzanie cyklem życia produktu (refurbishment)</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Key projects:" data-pl="Kluczowe projekty:">Kluczowe projekty:</span></strong>
+<ul>
+<li><span data-en="Valuation system based on data-analysis algorithms" data-pl="System wycen oparty na algorytmach analizy danych">System wycen oparty na algorytmach analizy danych</span></li>
+<li><span data-en="Development of a service partner network" data-pl="Budowa sieci partnerów serwisowych">Budowa sieci partnerów serwisowych</span></li>
+<li><span data-en="Cooperation with leasing companies and manufacturers" data-pl="Współpraca z firmami leasingowymi i producentami">Współpraca z firmami leasingowymi i producentami</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>07.2017 – 04.2023</td>
+<td>
+<div class="company-name">WIELTON S.A.</div>
+                                <span data-en="Poland’s largest semi-trailer manufacturer" data-pl="Największy polski producent naczep">Największy polski producent naczep</span>
+                            </td>
+<td>
+<div class="position-name"><span data-en="Director of Remarketing &amp; WIELTON Finance" data-pl="Dyrektor Remarketingu i WIELTON Finance">Dyrektor Remarketingu i WIELTON Finance</span></div>
+<div class="responsibilities">
+<strong><span data-en="Key projects:" data-pl="Kluczowe projekty:">Kluczowe projekty:</span></strong>
+<ul>
+<li><strong><span data-en="POWER ON Strategy" data-pl="Strategia POWER ON">Strategia POWER ON</span></strong> <span data-en="– development of corporate strategy components" data-pl="- opracowanie elementów strategii korporacyjnej">- opracowanie elementów strategii korporacyjnej</span></li>
+<li><strong><span data-en="WIELTON Finance" data-pl="WIELTON Finance">WIELTON Finance</span></strong> <span data-en="– development of the financing program and financial structure" data-pl="- budowa programu finansowania i wdrożenie struktury finansowej">- budowa programu finansowania i wdrożenie struktury finansowej</span></li>
+<li><strong><span data-en="P2M Project (WIELTON EVO)" data-pl="Projekt P2M (WIELTON EVO)">Projekt P2M (WIELTON EVO)</span></strong> <span data-en="– Europe’s first e-commerce semi-trailer" data-pl="- pierwsza naczepa e-commerce w Europie">- pierwsza naczepa e-commerce w Europie</span></li>
+<li><strong><span data-en="WIELTON Rental" data-pl="WIELTON Rental">WIELTON Rental</span></strong> <span data-en="– implementation of long- and short-term rental" data-pl="- wdrożenie wynajmu długo i krótkoterminowego">- wdrożenie wynajmu długo i krótkoterminowego</span></li>
+<li><strong><span data-en="Remarketing Transformation" data-pl="Transformacja remarketingu">Transformacja remarketingu</span></strong> <span data-en="– shift from product selling to competence selling" data-pl="- zmiana podejścia od sprzedaży produktu do sprzedaży kompetencji">- zmiana podejścia od sprzedaży produktu do sprzedaży kompetencji</span></li>
+<li><span data-en="Development of display locations and additional services" data-pl="Budowa sieci placów ekspozycyjnych i usług dodatkowych">Budowa sieci placów ekspozycyjnych i usług dodatkowych</span></li>
+<li><span data-en="Refurbishment programs extending product life" data-pl="Programy refurbishment wydłużające życie produktu">Programy refurbishment wydłużające życie produktu</span></li>
+<li><span data-en="Management of buy-back and trade-in processes" data-pl="Zarządzanie procesem buy-back i trade-in">Zarządzanie procesem buy-back i trade-in</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Results:" data-pl="Rezultaty:">Rezultaty:</span></strong>
+<ul>
+<li><span data-en="Created a profitable remarketing business line" data-pl="Stworzenie rentownej linii biznesowej remarketingu">Stworzenie rentownej linii biznesowej remarketingu</span></li>
+<li><span data-en="Increased residual value of WIELTON products" data-pl="Wzrost wartości residual value produktów WIELTON">Wzrost wartości residual value produktów WIELTON</span></li>
+<li><span data-en="Positioned the company as an industry innovator" data-pl="Pozycjonowanie jako innowator w branży">Pozycjonowanie jako innowator w branży</span></li>
+<li><span data-en="Built the remarketing department and implemented a complete operating structure" data-pl="Budowa działu remarketingu i wdrożenie pełnej struktury operacyjnej">Budowa działu remarketingu i wdrożenie pełnej struktury operacyjnej</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>06.2015 – 05.2017</td>
+<td>
+<div class="company-name">AUTOROLA Sp. z o.o.</div>
+                                <span data-en="Auction platform" data-pl="Platforma aukcyjna">Platforma aukcyjna</span>
+                            </td>
+<td>
+<div class="position-name"><span data-en="Business Development Manager – Truck &amp; Van" data-pl="Menedżer Rozwoju Biznesu – Truck &amp; Van">Menedżer Rozwoju Biznesu – Truck &amp; Van</span></div>
+<div class="responsibilities">
+<strong><span data-en="Responsibilities:" data-pl="Odpowiedzialność:">Odpowiedzialność:</span></strong>
+<ul>
+<li><span data-en="Development of the truck business in cooperation with leasing companies and importers" data-pl="Rozwój biznesu ciężarówek we współpracy z firmami leasingowymi i importerami">Rozwój biznesu ciężarówek we współpracy z firmami leasingowymi i importerami</span></li>
+<li><span data-en="Built the sales department and operating procedures" data-pl="Budowa działu sprzedaży i procedur operacyjnych">Budowa działu sprzedaży i procedur operacyjnych</span></li>
+<li><span data-en="Acquisition of suppliers and buyers" data-pl="Pozyskiwanie dostawców i nabywców">Pozyskiwanie dostawców i nabywców</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Achievements:" data-pl="Osiągnięcia:">Osiągnięcia:</span></strong>
+<ul>
+<li><span data-en="Built a new Heavy Truck business line" data-pl="Budowa nowej linii biznesowej Heavy Truck">Budowa nowej linii biznesowej Heavy Truck</span></li>
+<li><span data-en="100% year-on-year growth" data-pl="100% wzrost rok do roku">100% wzrost rok do roku</span></li>
+<li><span data-en="200 trucks sold in 2016" data-pl="200 ciężarówek sprzedanych w 2016 roku">200 ciężarówek sprzedanych w 2016 roku</span></li>
+<li><span data-en="Highest profitability in Europe" data-pl="Najwyższa rentowność w Europie">Najwyższa rentowność w Europie</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>05.2008 – 05.2015</td>
+<td>
+<div class="company-name">NISSAN Sales Central &amp; Eastern Europe</div>
+                                <span data-en="International corporation" data-pl="Korporacja międzynarodowa">Korporacja międzynarodowa</span>
+                            </td>
+<td>
+<div class="position-name"><span data-en="LCV Manager &amp; Area Fleet Manager" data-pl="Menedżer LCV i Area Fleet Manager">Menedżer LCV i Area Fleet Manager</span></div>
+<div class="responsibilities">
+<strong><span data-en="Career progression:" data-pl="Progresja:">Progresja:</span></strong> <span data-en="Area Manager → LCV Manager Poland → LCV &amp; Fleet Manager Poland" data-pl="Menedżer Strefy → Menedżer LCV Polska → Menedżer LCV i Flot Polska">Menedżer Strefy → Menedżer LCV Polska → Menedżer LCV i Flot Polska</span>
+                                    <ul>
+<li><span data-en="Managed WS and RS performance for LCV and fleet business" data-pl="Zarządzanie wynikami WS i RS dla LCV i flot">Zarządzanie wynikami WS i RS dla LCV i flot</span></li>
+<li><span data-en="Launch of new models (NP300, NV200, NV400)" data-pl="Wprowadzanie nowych modeli (NP300, NV200, NV400)">Wprowadzanie nowych modeli (NP300, NV200, NV400)</span></li>
+<li><span data-en="Cooperation with bodybuilders – WVTA homologations" data-pl="Współpraca z producentami zabudów - homologacje WVTA">Współpraca z producentami zabudów - homologacje WVTA</span></li>
+<li><span data-en="Professionalization of the sales team" data-pl="Profesjonalizacja zespołu sprzedażowego">Profesjonalizacja zespołu sprzedażowego</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Achievements:" data-pl="Osiągnięcia:">Osiągnięcia:</span></strong>
+<ul>
+<li><span data-en="Built a dealer network for trucks" data-pl="Budowa sieci dealerskiej dla ciężarówek">Budowa sieci dealerskiej dla ciężarówek</span></li>
+<li><span data-en="VAN Competence Center with full target achievement" data-pl="VAN Competence Center z pełną realizacją celów">VAN Competence Center z pełną realizacją celów</span></li>
+<li><span data-en="Launched 3 new LCV models" data-pl="Wprowadzenie 3 nowych modeli LCV">Wprowadzenie 3 nowych modeli LCV</span></li>
+<li><span data-en="Leader in 4x4 pick-ups for the public sector" data-pl="Lider w pick-upach 4x4 dla sektora państwowego">Lider w pick-upach 4x4 dla sektora państwowego</span></li>
+<li><span data-en="First Stage II WVTA homologation (Cabstar)" data-pl="Pierwsza homologacja WVTA II etapu (Cabstar)">Pierwsza homologacja WVTA II etapu (Cabstar)</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>01.2005 – 04.2008</td>
+<td>
+<div class="company-name">ORIX Polska S.A.</div>
+                                <span data-en="International leasing" data-pl="Leasing międzynarodowy">Leasing międzynarodowy</span>
+                            </td>
+<td>
+<div class="position-name"><span data-en="Business Development Manager" data-pl="Menedżer Rozwoju Biznesu">Menedżer Rozwoju Biznesu</span></div>
+<div class="responsibilities">
+<strong><span data-en="Scope:" data-pl="Zakres:">Zakres:</span></strong>
+<ul>
+<li><span data-en="Supplier acquisition – construction machinery" data-pl="Pozyskiwanie dostawców - maszyny budowlane">Pozyskiwanie dostawców - maszyny budowlane</span></li>
+<li><span data-en="Development of cooperation with fleet companies" data-pl="Rozwój współpracy z firmami flotowymi">Rozwój współpracy z firmami flotowymi</span></li>
+<li><span data-en="Sales team management" data-pl="Zarządzanie zespołem sprzedaży">Zarządzanie zespołem sprzedaży</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Achievements:" data-pl="Osiągnięcia:">Osiągnięcia:</span></strong>
+<ul>
+<li><span data-en="6 new suppliers with monthly turnover &gt; EUR 1 million" data-pl="6 nowych dostawców z obrotem &gt;1 mln EUR miesięcznie">6 nowych dostawców z obrotem &gt;1 mln EUR miesięcznie</span></li>
+<li><span data-en="Top BDM for 2 consecutive years" data-pl="Najlepszy BDM przez 2 lata z rzędu">Najlepszy BDM przez 2 lata z rzędu</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>05.2002 – 12.2004</td>
+<td>
+<div class="company-name">CAREFLEET S.A.</div>
+                                Credit Agricole
+                            </td>
+<td>
+<div class="position-name"><span data-en="Key Account Manager" data-pl="Menedżer Kluczowych Klientów">Menedżer Kluczowych Klientów</span></div>
+<div class="responsibilities">
+<strong><span data-en="Scope:" data-pl="Zakres:">Zakres:</span></strong>
+<ul>
+<li><span data-en="Acquisition of corporate clients" data-pl="Pozyskiwanie klientów korporacyjnych">Pozyskiwanie klientów korporacyjnych</span></li>
+<li><span data-en="Negotiation of leasing contracts" data-pl="Negocjacje kontraktów leasingowych">Negocjacje kontraktów leasingowych</span></li>
+<li><span data-en="Cooperation with PSA Group (Citroën, Peugeot)" data-pl="Współpraca z Grupą PSA (Citroen, Peugeot)">Współpraca z Grupą PSA (Citroen, Peugeot)</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Achievements:" data-pl="Osiągnięcia:">Osiągnięcia:</span></strong>
+<ul>
+<li><span data-en="20% year-on-year sales growth" data-pl="20% wzrost sprzedaży rok do roku">20% wzrost sprzedaży rok do roku</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>2001 – 2003</td>
+<td>
+<div class="company-name">RAMIRENT S.A.</div>
+                                <span data-en="Construction machinery rental" data-pl="Wynajem maszyn budowlanych">Wynajem maszyn budowlanych</span>
+                            </td>
+<td>
+<div class="position-name"><span data-en="Branch Manager (Warsaw)" data-pl="Kierownik Oddziału (Warszawa)">Kierownik Oddziału (Warszawa)</span></div>
+<div class="achievements">
+<strong><span data-en="Achievements:" data-pl="Osiągnięcia:">Osiągnięcia:</span></strong>
+<ul>
+<li><span data-en="Contracts with major construction companies" data-pl="Kontrakty z największymi firmami budowlanymi">Kontrakty z największymi firmami budowlanymi</span></li>
+<li><span data-en="Best DYNAPAC rental contract sales in Poland" data-pl="Najlepsza sprzedaż kontraktów rentalowych DYNAPAC w Polsce">Najlepsza sprzedaż kontraktów rentalowych DYNAPAC w Polsce</span></li>
+</ul>
+</div>
+</td>
+</tr>
+<tr>
+<td>03.1996 – 11.2001</td>
+<td>
+<div class="company-name">ARIES POWER EQUIPMENT</div>
+                                <span data-en="HONDA Power Products distributor" data-pl="Dystrybutor HONDA Power Products">Dystrybutor HONDA Power Products</span>
+                            </td>
+<td>
+<div class="position-name"><span data-en="Product Manager – Generators / Sales Manager" data-pl="Product Manager – agregaty / Kierownik Sprzedaży">Product Manager – agregaty / Kierownik Sprzedaży</span></div>
+<div class="responsibilities">
+<strong><span data-en="Career progression:" data-pl="Progresja:">Progresja:</span></strong> <span data-en="Sales Representative → Sales Manager → Product Manager" data-pl="Handlowiec → Kierownik Sprzedaży → Product Manager">Handlowiec → Kierownik Sprzedaży → Product Manager</span>
+                                    <ul>
+<li><span data-en="Sales and marketing strategy for Honda generators" data-pl="Strategia sprzedaży i marketingu agregatów Honda">Strategia sprzedaży i marketingu agregatów Honda</span></li>
+<li><span data-en="Managed a network of 120 dealers" data-pl="Zarządzanie siecią 120 dealerów">Zarządzanie siecią 120 dealerów</span></li>
+<li><span data-en='"Year 2000 Problem" project' data-pl='Projekt "Problem Roku 2000"'>Projekt "Problem Roku 2000"</span></li>
+<li><span data-en="B2B sales (telecom, military, police, fire services)" data-pl="Sprzedaż B2B (telecom, Wojsko, Policja, Straż)">Sprzedaż B2B (telecom, Wojsko, Policja, Straż)</span></li>
+</ul>
+</div>
+<div class="achievements">
+<strong><span data-en="Achievements:" data-pl="Osiągnięcia:">Osiągnięcia:</span></strong>
+<ul>
+<li><span data-en="27% market share in HONDA generators" data-pl="27% udziału w rynku agregatów HONDA">27% udziału w rynku agregatów HONDA</span></li>
+<li><span data-en="~1,000 units annually for the B2B sector" data-pl="~1000 jednostek rocznie dla sektora B2B">~1000 jednostek rocznie dla sektora B2B</span></li>
+<li><span data-en="Best-selling showroom in Poland" data-pl="Najlepiej sprzedający salon w Polsce">Najlepiej sprzedający salon w Polsce</span></li>
+</ul>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+ <span data-en="Education &amp; Competencies" data-pl="Wykształcenie i Kompetencje">Wykształcenie i Kompetencje</span> 
+<section class="section" id="wyksztalcenie">
+<h2 class="section-title"><span data-en="Education &amp; Competencies" data-pl="Wykształcenie i Kompetencje">Wykształcenie i Kompetencje</span></h2>
+<h3 class="section-subtitle"><span data-en="Education" data-pl="Wykształcenie">Wykształcenie</span></h3>
+<table class="data-table">
+<thead>
+<tr>
+<th><span data-en="Institution" data-pl="Uczelnia">Uczelnia</span></th>
+<th><span data-en="Specialization" data-pl="Specjalizacja">Specjalizacja</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><span data-en="Academy of Entrepreneurship and Social Sciences in Otwock" data-pl="Akademia Przedsiębiorczości i Nauk Społecznych w Otwocku">Akademia Przedsiębiorczości i Nauk Społecznych w Otwocku</span></strong><br/><span data-en="3-year higher education program" data-pl="Studia wyższe 3-letnie">Studia wyższe 3-letnie</span></td>
+<td><span data-en="Business Management" data-pl="Zarządzanie Przedsiębiorstwem">Zarządzanie Przedsiębiorstwem</span></td>
+</tr>
+<tr>
+<td><strong><span data-en="Economic Secondary School, Warsaw" data-pl="Ekonomiczne Liceum Ogólnokształcące, Warszawa">Ekonomiczne Liceum Ogólnokształcące, Warszawa</span></strong></td>
+<td><span data-en="Economics profile" data-pl="Profil ekonomiczny">Profil ekonomiczny</span></td>
+</tr>
+</tbody>
+</table>
+<h3 class="section-subtitle"><span data-en="Language Skills" data-pl="Kompetencje Językowe">Kompetencje Językowe</span></h3>
+<table class="data-table">
+<thead>
+<tr>
+<th><span data-en="Language" data-pl="Język">Język</span></th>
+<th><span data-en="Level" data-pl="Poziom">Poziom</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span data-en="Polish" data-pl="Polski">Polski</span></td>
+<td><span data-en="Native" data-pl="Ojczysty">Ojczysty</span></td>
+</tr>
+<tr>
+<td><span data-en="English" data-pl="Angielski">Angielski</span></td>
+<td><span data-en="B2" data-pl="Poziom B2">Poziom B2</span></td>
+</tr>
+<tr>
+<td><span data-en="Russian" data-pl="Rosyjski">Rosyjski</span></td>
+<td><span data-en="C1" data-pl="Poziom C1">Poziom C1</span></td>
+</tr>
+</tbody>
+</table>
+<h3 class="section-subtitle"><span data-en="Technical Skills" data-pl="Kompetencje Techniczne">Kompetencje Techniczne</span></h3>
+<div class="skills-grid">
+<div class="skill-item">
+<strong>MS Office</strong>
+                        <span data-en="Advanced (Excel, PowerPoint, Word)" data-pl="Zaawansowany (Excel, PowerPoint, Word)">Zaawansowany (Excel, PowerPoint, Word)</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="CRM Systems" data-pl="Systemy CRM">Systemy CRM</span></strong>
+                        Siebel, Lotus Notes, Salesforce
+                    </div>
+<div class="skill-item">
+<strong><span data-en="BI Tools" data-pl="Narzędzia BI">Narzędzia BI</span></strong>
+                        <span data-en="Power BI, advanced Excel" data-pl="Power BI, Excel zaawansowany">Power BI, Excel zaawansowany</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Auction Platforms" data-pl="Platformy aukcyjne">Platformy aukcyjne</span></strong>
+                        <span data-en="Autorola, remarketing systems" data-pl="Autorola, systemy remarketingowe">Autorola, systemy remarketingowe</span>
+                    </div>
+</div>
+<h3 class="section-subtitle"><span data-en="Industry Expertise" data-pl="Obszary Branżowe">Obszary Branżowe</span></h3>
+<ul class="styled-list">
+<li><strong>Heavy Commercial Vehicles</strong> <span data-en="– semi-trailers, trailers, trucks &gt;7.5t" data-pl="- naczepy, przyczepy, ciężarówki &gt;7.5t">- naczepy, przyczepy, ciężarówki &gt;7.5t</span></li>
+<li><strong>Light Commercial Vehicles</strong> <span data-en="– vans and pick-ups 3.5–7.5t" data-pl="- pojazdy dostawcze, pick-upy 3.5-7.5t">- pojazdy dostawcze, pick-upy 3.5-7.5t</span></li>
+<li><strong>Remarketing</strong> <span data-en="– used product management, valuations, refurbishment" data-pl="- zarządzanie produktem używanym, wyceny, refurbishment">- zarządzanie produktem używanym, wyceny, refurbishment</span></li>
+<li><strong><span data-en="Leasing &amp; Financing" data-pl="Leasing i finansowanie">Leasing i finansowanie</span></strong> <span data-en="– cooperation with financial institutions" data-pl="- współpraca z instytucjami finansowymi">- współpraca z instytucjami finansowymi</span></li>
+<li><strong>Fleet Management</strong> <span data-en="– fleet management, loyalty programs" data-pl="- zarządzanie flotami, programy lojalnościowe">- zarządzanie flotami, programy lojalnościowe</span></li>
+<li><strong>B2B sales</strong> <span data-en="– corporate negotiations, long-term contracts" data-pl="- negocjacje korporacyjne, kontrakty długoterminowe">- negocjacje korporacyjne, kontrakty długoterminowe</span></li>
+<li><strong>Dealer network management</strong> <span data-en="– dealer network development" data-pl="- budowa i rozwój sieci dealerskich">- budowa i rozwój sieci dealerskich</span></li>
+</ul>
+</section>
+<!-- Przywództwo i Wartości -->
+<section class="section">
+<h2 class="section-title"><span data-en="Leadership Style &amp; Values" data-pl="Style Przywództwa i Wartości">Style Przywództwa i Wartości</span></h2>
+<div class="info-box">
+<h3><span data-en="My Leadership Approach" data-pl="Moje Podejście do Przywództwa">Moje Podejście do Przywództwa</span></h3>
+<ul>
+<li><strong><span data-en="Leading by Example" data-pl="Przywództwo przez przykład">Przywództwo przez przykład</span></strong> <span data-en='– active participation in processes rather than managing "from behind a desk"' data-pl='- aktywne uczestnictwo w procesach, nie zarządzanie "zza biurka"'>- aktywne uczestnictwo w procesach, nie zarządzanie "zza biurka"</span></li>
+<li><strong><span data-en="Team Empowerment" data-pl="Empowerment zespołu">Empowerment zespołu</span></strong> <span data-en="– autonomy and accountability, coaching and mentoring" data-pl="- autonomia i odpowiedzialność, coaching i mentoring">- autonomia i odpowiedzialność, coaching i mentoring</span></li>
+<li><strong><span data-en="Feedback Culture" data-pl="Kultura feedbacku">Kultura feedbacku</span></strong> <span data-en="– regular meetings, case reviews, open communication" data-pl="- regularne spotkania, analiza przypadków, otwarta komunikacja">- regularne spotkania, analiza przypadków, otwarta komunikacja</span></li>
+<li><strong><span data-en="Decision Transparency" data-pl="Transparentność decyzji">Transparentność decyzji</span></strong> <span data-en="– data- and trust-based approach" data-pl="- podejście oparte na danych i zaufaniu">- podejście oparte na danych i zaufaniu</span></li>
+</ul>
+</div>
+<h3 class="section-subtitle"><span data-en="Values &amp; Personality" data-pl="Wartości i Osobowość">Wartości i Osobowość</span></h3>
+<div class="skills-grid">
+<div class="skill-item">
+<strong><span data-en="Positive Mindset" data-pl="Pozytywne myślenie">Pozytywne myślenie</span></strong>
+                        <span data-en="I see opportunities where others see problems" data-pl="Widzę możliwości tam gdzie inni widzą problemy">Widzę możliwości tam gdzie inni widzą problemy</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Sense of Humor" data-pl="Poczucie humoru">Poczucie humoru</span></strong>
+                        <span data-en="Building a positive atmosphere through informal communication" data-pl="Budowanie atmosfery przez luźną komunikację">Budowanie atmosfery przez luźną komunikację</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Adaptability" data-pl="Elastyczność">Elastyczność</span></strong>
+                        <span data-en="Ability to adapt in a dynamic environment" data-pl="Zdolność adaptacji w dynamicznym środowisku">Zdolność adaptacji w dynamicznym środowisku</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Persistence" data-pl="Wytrwałość">Wytrwałość</span></strong>
+                        <span data-en="Consistent pursuit of goals despite obstacles" data-pl="Konsekwentne dążenie do celu mimo przeszkód">Konsekwentne dążenie do celu mimo przeszkód</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Business Integrity" data-pl="Uczciwość biznesowa">Uczciwość biznesowa</span></strong>
+                        <span data-en="Transparency and long-term relationships" data-pl="Transparentność i długoterminowe relacje">Transparentność i długoterminowe relacje</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Continuous Learning" data-pl="Ciągłe uczenie się">Ciągłe uczenie się</span></strong>
+                        <span data-en="Curiosity about new technologies and trends" data-pl="Ciekawość nowych technologii i trendów">Ciekawość nowych technologii i trendów</span>
+                    </div>
+</div>
+</section>
+<!-- Zainteresowania -->
+<section class="section">
+<h2 class="section-title"><span data-en="Interests &amp; Passions" data-pl="Zainteresowania i Pasje">Zainteresowania i Pasje</span></h2>
+<div class="achievements-grid">
+<div class="achievement-card">
+<h3><span data-en="3D Archery" data-pl="Łucznictwo 3D">Łucznictwo 3D</span></h3>
+<p><span data-en="A sport requiring precision, patience, and concentration. Active participant in competitions and training." data-pl="Sport wymagający precyzji, cierpliwości i koncentracji. Aktywny uczestnik zawodów i treningów.">Sport wymagający precyzji, cierpliwości i koncentracji. Aktywny uczestnik zawodów i treningów.</span></p>
+</div>
+<div class="achievement-card">
+<h3><span data-en="Motorcycle Touring" data-pl="Turystyka motocyklowa">Turystyka motocyklowa</span></h3>
+<p><span data-en="A passion for travel and discovering new places." data-pl="Pasja do podróżowania i poznawania nowych miejsc.">Pasja do podróżowania i poznawania nowych miejsc.</span></p>
+</div>
+<div class="achievement-card">
+<h3><span data-en="Classic Motoring" data-pl="Motoryzacja klasyczna">Motoryzacja klasyczna</span></h3>
+<p><span data-en="Interest in historic vehicles, their restoration, and automotive history." data-pl="Zainteresowanie pojazdami historycznymi, ich renowacją i historią automotive.">Zainteresowanie pojazdami historycznymi, ich renowacją i historią automotive.</span></p>
+</div>
+</div>
+</section>
+<!-- Dlaczego warto współpracować -->
+<section class="section">
+<h2 class="section-title"><span data-en="Why Work With Me" data-pl="Dlaczego Warto Ze Mną Współpracować">Dlaczego Warto Ze Mną Współpracować</span></h2>
+<div class="info-box">
+<ul>
+<li><strong><span data-en="Strategy Combined with Execution" data-pl="Połączenie strategii z wykonaniem">Połączenie strategii z wykonaniem</span></strong> <span data-en="– I not only plan, but also implement and deliver results" data-pl="- nie tylko planuję, ale realnie wdrażam i osiągam cele">- nie tylko planuję, ale realnie wdrażam i osiągam cele</span></li>
+<li><strong><span data-en="Transformation Track Record" data-pl="Track record transformacji">Track record transformacji</span></strong> <span data-en="– proven success in building and implementing strategies within organizations" data-pl="- udokumentowane sukcesy w budowaniu i wdrażaniu strategii w organizacjach">- udokumentowane sukcesy w budowaniu i wdrażaniu strategii w organizacjach</span></li>
+<li><strong><span data-en="Innovation" data-pl="Innowacyjność">Innowacyjność</span></strong> <span data-en="– open to new solutions (WIELTON EVO, finance programs)" data-pl="- nie boję się nowych rozwiązań (WIELTON EVO, programy finance)">- nie boję się nowych rozwiązań (WIELTON EVO, programy finance)</span></li>
+<li><strong><span data-en="Pragmatism" data-pl="Pragmatyzm">Pragmatyzm</span></strong> <span data-en="– balance between vision and business realism" data-pl="- równowaga między wizją a realizmem biznesowym">- równowaga między wizją a realizmem biznesowym</span></li>
+<li><strong><span data-en="International Experience" data-pl="Doświadczenie międzynarodowe">Doświadczenie międzynarodowe</span></strong> <span data-en="– corporate experience and knowledge of international markets" data-pl="- praca dla korporacji + znajomość międzynarodowego rynku">- praca dla korporacji + znajomość międzynarodowego rynku</span></li>
+<li><strong><span data-en="Professional Network" data-pl="Sieć kontaktów">Sieć kontaktów</span></strong> <span data-en="– 25+ years in the industry means an extensive network of relationships" data-pl="- 25+ lat w branży to rozległa sieć relacji">- 25+ lat w branży to rozległa sieć relacji</span></li>
+<li><strong><span data-en="Entrepreneurial Mindset" data-pl="Przedsiębiorcze myślenie">Przedsiębiorcze myślenie</span></strong> <span data-en="– as the founder of AVRS, I understand financial pressure and risk" data-pl="- jako założyciel AVRS rozumiem presję finansową i ryzyko">- jako założyciel AVRS rozumiem presję finansową i ryzyko</span></li>
+</ul>
+</div>
+</section>
+ <span data-en="Areas of Cooperation" data-pl="Obszary Współpracy">Obszary Współpracy</span> 
+<section class="section">
+<h2 class="section-title"><span data-en="Areas of Cooperation" data-pl="Obszary Współpracy">Obszary Współpracy</span></h2>
+<p style="margin-bottom: 30px; font-size: 1.1em; color: var(--text-medium);"><span data-en="I am open to cooperation in the following areas:" data-pl="Jestem otwarty na współpracę w następujących obszarach:">Jestem otwarty na współpracę w następujących obszarach:</span></p>
+<div class="skills-grid">
+<div class="skill-item">
+<strong><span data-en="Strategic Advisory" data-pl="Doradztwo strategiczne">Doradztwo strategiczne</span></strong>
+                        <span data-en="Remarketing strategies, trade-in, fleet management" data-pl="Strategie remarketingowe, trade-in, fleet management">Strategie remarketingowe, trade-in, fleet management</span>
+                    </div>
+<div class="skill-item">
+<strong>Interim Management</strong>
+                        <span data-en="Management of sales and remarketing departments" data-pl="Zarządzanie działami sprzedaży i remarketingu">Zarządzanie działami sprzedaży i remarketingu</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Transformation Projects" data-pl="Projekty transformacyjne">Projekty transformacyjne</span></strong>
+                        <span data-en="New business models, process digitalization" data-pl="Nowe modele biznesowe, digitalizacja procesów">Nowe modele biznesowe, digitalizacja procesów</span>
+                    </div>
+<div class="skill-item">
+<strong>M&amp;A advisory</strong>
+                        <span data-en="Technical and business due diligence in the LCV sector" data-pl="Due diligence techniczne i biznesowe w sektorze LCV">Due diligence techniczne i biznesowe w sektorze LCV</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Training &amp; Workshops" data-pl="Szkolenia i warsztaty">Szkolenia i warsztaty</span></strong>
+                        <span data-en="Remarketing, B2B negotiations, team management" data-pl="Remarketing, negocjacje B2B, zarządzanie zespołem">Remarketing, negocjacje B2B, zarządzanie zespołem</span>
+                    </div>
+<div class="skill-item">
+<strong><span data-en="Strategic Partnerships" data-pl="Partnerstwa strategiczne">Partnerstwa strategiczne</span></strong>
+                        <span data-en="Joint ventures and business cooperation within AVRS" data-pl="Joint ventures, współpraca biznesowa w ramach AVRS">Joint ventures, współpraca biznesowa w ramach AVRS</span>
+                    </div>
+</div>
+</section>
+</div>
+<!-- Footer -->
+<footer class="footer" id="kontakt">
+<h3><span data-en="Contact" data-pl="Kontakt">Kontakt</span></h3>
+<div class="footer-contact">
+<div class="footer-contact-item">
+<strong>E-mail:</strong> ajdar.dziadosz@gmail.com
+                </div>
+<div class="footer-contact-item">
+<strong><span data-en="Phone:" data-pl="Telefon:">Telefon:</span></strong> +48 798 779 617
+                </div>
+<div class="footer-contact-item">
+<strong><span data-en="Company:" data-pl="Firma:">Firma:</span></strong> <a href="https://www.avrs.com.pl" style="color: white;" target="_blank">www.avrs.com.pl</a>
+</div>
+</div>
+<p style="margin-top: 40px; opacity: 0.7; font-size: 0.9em;"><span data-en="Portfolio updated: January 2026" data-pl="Portfolio zaktualizowane: styczeń 2026">Portfolio zaktualizowane: styczeń 2026</span></p>
+<p style="margin-top: 10px; opacity: 0.7; font-size: 0.9em;"><span data-en="References available upon request" data-pl="Referencje dostępne na życzenie">Referencje dostępne na życzenie</span></p>
+</footer>
+</div>
+
+<script>
+(function () {
+    const buttons = document.querySelectorAll('.lang-btn');
+    const translatable = document.querySelectorAll('[data-pl][data-en]');
+    const titles = {
+        pl: 'Ajdar Dziadosz - Portfolio Profesjonalne',
+        en: 'Ajdar Dziadosz - Professional Portfolio'
+    };
+
+    function setLanguage(lang) {
+        translatable.forEach(el => {
+            el.textContent = el.dataset[lang];
+        });
+        document.documentElement.lang = lang;
+        document.title = titles[lang];
+
+        buttons.forEach(btn => {
+            const active = btn.dataset.lang === lang;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        try { localStorage.setItem('portfolioLanguage', lang); } catch(e) {}
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', () => setLanguage(btn.dataset.lang));
+    });
+
+    let saved = 'pl';
+    try { saved = localStorage.getItem('portfolioLanguage') || 'pl'; } catch(e) {}
+    setLanguage(saved);
+})();
+</script>
+</body>
+</html>
